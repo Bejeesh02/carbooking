@@ -7,6 +7,17 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
+const path = require('path');
+
+// Serve static files
+app.use(express.static(path.join(__dirname, 'build')));
+
+// Serve React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
 const keys = require('./credentials.json'); // Google service account JSON
 
 const auth = new google.auth.GoogleAuth({

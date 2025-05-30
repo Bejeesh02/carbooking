@@ -5,7 +5,9 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd backend && npm start",
-    "client": "cd frontend && npm start"
+    "client": "cd frontend && npm start",
+    "predeploy": "cd frontend && npm run build",
+    "deploy": "gh-pages -d frontend/build"
   },
   "repository": {
     "type": "git",
@@ -17,9 +19,9 @@
   "bugs": {
     "url": "https://github.com/Bejeesh02/booking/issues"
   },
-  "homepage": "https://github.com/Bejeesh02/booking#readme",
-  "description": "",
+  "homepage": "https://bejeesh02.github.io/carbooking",
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "gh-pages": "^6.3.0"
   }
 }
